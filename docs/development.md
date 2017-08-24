@@ -115,7 +115,7 @@ Edit `bcccore-node.json` with something similar to:
     "bitcoind",
     "web",
     "bcccore-explorer-api",
-    "explorer-ui",
+    "ows-explorer",
     "<additional_service>"
   ],
   "servicesConfig": {
@@ -129,7 +129,7 @@ Edit `bcccore-node.json` with something similar to:
 }
 ```
 
-**Note**: To install services [bcccore-explorer-api](https://github.com/owstack/bcccore-explorer-api) and [explorer-ui](https://github.com/owstack/explorer-ui) you'll need to clone the repositories locally.
+**Note**: To install services [bcccore-explorer-api](https://github.com/owstack/bcccore-explorer-api) and [ows-explorer](https://github.com/owstack/ows-explorer) you'll need to clone the repositories locally.
 
 Setup symlinks for all of the services and dependencies:
 
@@ -138,7 +138,7 @@ cd node_modules
 ln -s ~/bcccore-lib
 ln -s ~/bcccore-node
 ln -s ~/bcccore-explorer-api
-ln -s ~/explorer-ui
+ln -s ~/ows-explorer
 ```
 
 Make sure that the `<datadir>/bitcoin.conf` has the necessary settings, for example:
