@@ -1,0 +1,4 @@
+#!/usr/bin/env node
+
+var bcccore = require('../lib/cli/bcccore');
+bcccore();
