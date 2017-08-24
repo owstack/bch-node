@@ -59,7 +59,7 @@ describe('#defaultConfig', function() {
         'bitcoind',
         'web',
         'bcccore-explorer-api',
-        'explorer-ui'
+        'ows-explorer'
       ],
       servicesConfig: {
         bitcoind: {
@@ -87,7 +87,7 @@ describe('#defaultConfig', function() {
     });
     var home = process.env.HOME;
     var info = defaultConfig({
-      additionalServices: ['bcccore-explorer-api', 'explorer-ui']
+      additionalServices: ['bcccore-explorer-api', 'ows-explorer']
     });
     info.path.should.equal(home + '/.bcccore');
     info.config.network.should.equal('livenet/bcc');
@@ -96,7 +96,7 @@ describe('#defaultConfig', function() {
       'bitcoind',
       'web',
       'bcccore-explorer-api',
-      'explorer-ui'
+      'ows-explorer'
     ]);
     var bitcoind = info.config.servicesConfig.bitcoind;
     should.exist(bitcoind);

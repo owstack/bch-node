@@ -40,7 +40,7 @@ This will create a directory with configuration files for your node and install 
 There are several add-on services available to extend the functionality of Bcccore:
 
 - [Explorer API](https://github.com/owstack/bcccore-explorer-api)
-- [Explorer UI](https://github.com/owstack/explorer-ui)
+- [OWS Explorer](https://github.com/owstack/ows-explorer)
 - [Bcccore Wallet Service](https://github.com/owstack/bcccore-wallet-service)
 
 ## Documentation
