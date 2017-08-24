@@ -114,7 +114,7 @@ Edit `bcccore-node.json` with something similar to:
   "services": [
     "bitcoind",
     "web",
-    "bcccore-explorer-api",
+    "explorer-api",
     "ows-explorer",
     "<additional_service>"
   ],
