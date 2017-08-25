@@ -24,6 +24,7 @@ describe('#start', function() {
       var TestNode = function(options) {
         options.services[0].should.deep.equal({
           name: 'bitcoind',
+          moduleName: 'bitcoind',
           module: BitcoinService,
           config: {
             spawn: {
@@ -92,6 +93,7 @@ describe('#start', function() {
       var TestNode = function(options) {
         options.services[0].should.deep.equal({
           name: 'bitcoind',
+          moduleName: 'bitcoind',
           module: BitcoinService,
           config: {
             param: 'test',
