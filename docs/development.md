@@ -124,6 +124,9 @@ Edit `bcccore-node.json` with something similar to:
         "datadir": "/home/<youruser>/.bitcoin",
         "exec": "/home/<youruser>/bitcoin/src/bitcoind"
       }
+    },
+    "explorer-api": {
+      "module": "bcccore-explorer-api"
     }
   }
 }
