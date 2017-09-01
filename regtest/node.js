@@ -45,7 +45,7 @@ describe('Node Functionality', function() {
       }
 
       var configuration = {
-        network: 'regtest/bcc',
+        network: 'regtest',
         services: [
           {
             name: 'bitcoind',
@@ -62,7 +62,7 @@ describe('Node Functionality', function() {
 
       node = new BcccoreNode(configuration);
 
-      regtest = bcccore.Networks.get('regtest/bcc');
+      regtest = bcccore.Networks.get('regtest');
       should.exist(regtest);
 
       node.on('error', function(err) {

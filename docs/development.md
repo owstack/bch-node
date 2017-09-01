@@ -109,7 +109,7 @@ touch package.json
 Edit `bcccore-node.json` with something similar to:
 ```json
 {
-  "network": "livenet/bcc",
+  "network": "livenet",
   "port": 3001,
   "services": [
     "bitcoind",

@@ -41,7 +41,7 @@ describe('P2P Functionality', function() {
 
     // enable regtest
     bcccore.Networks.enableRegtest();
-    var regtestNetwork = bcccore.Networks.get('regtest/bcc');
+    var regtestNetwork = bcccore.Networks.get('regtest');
     var datadir = __dirname + '/data';
 
     rimraf(datadir + '/regtest', function(err) {

@@ -73,7 +73,7 @@ describe('#create', function() {
       var config = JSON.parse(fs.readFileSync(configPath));
       config.services.should.deep.equal(['bitcoind', 'db', 'address', 'web']);
       config.datadir.should.equal('./data');
-      config.network.should.equal('livenet/bcc');
+      config.network.should.equal('livenet');
 
       var pack = JSON.parse(fs.readFileSync(packagePath));
       should.exist(pack.dependencies);

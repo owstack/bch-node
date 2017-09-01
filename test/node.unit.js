@@ -56,7 +56,7 @@ describe('Bcccore Node', function() {
     });
     it('will set network to testnet', function() {
       var config = {
-        network: 'testnet/bcc',
+        network: 'testnet',
         services: [
           {
             name: 'test1',
@@ -71,7 +71,7 @@ describe('Bcccore Node', function() {
     });
     it('will set network to regtest', function() {
       var config = {
-        network: 'regtest/bcc',
+        network: 'regtest',
         services: [
           {
             name: 'test1',
@@ -82,13 +82,13 @@ describe('Bcccore Node', function() {
       var TestNode = proxyquire('../lib/node', {});
       TestNode.prototype.start = sinon.spy();
       var node = new TestNode(config);
-      var regtest = Networks.get('regtest/bcc');
+      var regtest = Networks.get('regtest');
       should.exist(regtest);
       node.network.should.equal(regtest);
     });
     it('will be able to disable log formatting', function() {
       var config = {
-        network: 'regtest/bcc',
+        network: 'regtest',
         services: [
           {
             name: 'test1',
@@ -427,23 +427,23 @@ describe('Bcccore Node', function() {
     afterEach(function() {
       bcccore.Networks.disableRegtest();
     });
-    it('it will return the network name for livenet/bcc', function() {
+    it('it will return the network name for livenet', function() {
       var node = new Node(baseConfig);
-      node.getNetworkName().should.equal('livenet/bcc');
+      node.getNetworkName().should.equal('livenet');
     });
     it('it will return the network name for testnet', function() {
       var baseConfig = {
-        network: 'testnet/bcc'
+        network: 'testnet'
       };
       var node = new Node(baseConfig);
-      node.getNetworkName().should.equal('testnet/bcc');
+      node.getNetworkName().should.equal('testnet');
     });
     it('it will return the network for regtest', function() {
       var baseConfig = {
-        network: 'regtest/bcc'
+        network: 'regtest'
       };
       var node = new Node(baseConfig);
-      node.getNetworkName().should.equal('regtest/bcc');
+      node.getNetworkName().should.equal('regtest');
     });
   });
 

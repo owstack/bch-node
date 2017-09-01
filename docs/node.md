@@ -20,7 +20,7 @@ var Node = index.Node;
 
 var configuration = {
   datadir: '/home/user/.bitcoin',
-  network: 'testnet/bcc',
+  network: 'testnet',
   services: [
     {
       name: 'bitcoind',

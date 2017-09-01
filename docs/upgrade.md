@@ -24,7 +24,7 @@ To start reindexing add `reindex=1` during the **first startup only**.
 ```json
 {
   "datadir": "/home/<username>/.bitcoin",
-  "network": "livenet/bcc",
+  "network": "livenet",
   "port": 3001,
   "services": [
     "address",
@@ -38,7 +38,7 @@ To start reindexing add `reindex=1` during the **first startup only**.
 **After**:
 ```json
 {
-  "network": "livenet/bcc",
+  "network": "livenet",
   "port": 3001,
   "services": [
     "bitcoind",

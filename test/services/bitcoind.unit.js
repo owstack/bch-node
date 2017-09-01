@@ -452,7 +452,7 @@ describe('Bitcoin Service', function() {
       var config = {
         node: {
           network: {
-            name: 'regtest/bcc'
+            name: 'regtest'
           },
           https: true,
           httpsOptions: {
@@ -758,7 +758,7 @@ describe('Bitcoin Service', function() {
       bcccore.Networks.disableRegtest();
       baseConfig.node.network = bcccore.Networks.testnet;
     });
-    it('will get default rpc port for livenet/bcc', function() {
+    it('will get default rpc port for livenet', function() {
       var config = {
         node: {
           network: bcccore.Networks.livenet
@@ -805,7 +805,7 @@ describe('Bitcoin Service', function() {
       bcccore.Networks.disableRegtest();
       baseConfig.node.network = bcccore.Networks.testnet;
     });
-    it('will get default config path for livenet/bcc', function() {
+    it('will get default config path for livenet', function() {
       var config = {
         node: {
           network: bcccore.Networks.livenet
@@ -863,7 +863,7 @@ describe('Bitcoin Service', function() {
       bcccore.Networks.enableRegtest();
       bitcoind._getNetworkOption().should.equal('--regtest');
     });
-    it('return undefined for livenet/bcc', function() {
+    it('return undefined for livenet', function() {
       var bitcoind = new BitcoinService(baseConfig);
       bitcoind.node.network = bcccore.Networks.livenet;
       bcccore.Networks.enableRegtest();
@@ -4912,7 +4912,7 @@ describe('Bitcoin Service', function() {
     });
     it('will call client getInfo and give result', function(done) {
       var bitcoind = new BitcoinService(baseConfig);
-      bitcoind.node.getNetworkName = sinon.stub().returns('testnet/bcc');
+      bitcoind.node.getNetworkName = sinon.stub().returns('testnet');
       var getInfo = sinon.stub().callsArgWith(0, null, {
         result: {
           version: 1,
@@ -4956,7 +4956,7 @@ describe('Bitcoin Service', function() {
         should.equal(info.errors, '');
         should.equal(info.subversion, 1);
         should.equal(info.localServices, 'services');
-        info.network.should.equal('testnet/bcc');
+        info.network.should.equal('testnet');
         done();
       });
     });

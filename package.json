@@ -34,7 +34,7 @@
     "preinstall": "./scripts/download",
     "verify": "./scripts/download --skip-bitcoin-download --verify-bitcoin-download",
     "test": "mocha -R spec --recursive",
-    "regtest/bcc": "./scripts/regtest",
+    "regtest": "./scripts/regtest",
     "jshint": "jshint --reporter=node_modules/jshint-stylish ./lib",
     "coverage": "istanbul cover _mocha -- --recursive",
     "coveralls": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- --recursive -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
