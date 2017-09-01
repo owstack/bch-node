@@ -99,7 +99,7 @@ node.services.bitcoind.getInfo(function(err, info) {
 **Generate Blocks**
 
 ```js
-// will generate a block for the "regtest/bcc" network (development purposes)
+// will generate a block for the "regtest" network (development purposes)
 var numberOfBlocks = 10;
 node.services.bitcoind.generateBlock(numberOfBlocks, function(err, blockHashes) {
   //...

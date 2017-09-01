@@ -55,7 +55,7 @@ describe('Bus Functionality', function() {
   it('should subscribe to testEvent', function(done) {
     var node = new BcccoreNode({
       datadir: './',
-      network: 'testnet/bcc',
+      network: 'testnet',
       port: 8888,
       services: [
         {
@@ -79,7 +79,7 @@ describe('Bus Functionality', function() {
   it('should unsubscribe from a testEvent', function(done) {
     var node = new BcccoreNode({
       datadir: './',
-      network: 'testnet/bcc',
+      network: 'testnet',
       port: 8888,
       services: [
         {

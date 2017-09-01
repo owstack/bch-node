@@ -33,7 +33,7 @@ describe('Bitcoind Functionality', function() {
 
     // Add the regtest network
     bcccore.Networks.enableRegtest();
-    var regtestNetwork = bcccore.Networks.get('regtest/bcc');
+    var regtestNetwork = bcccore.Networks.get('regtest');
 
     var datadir = __dirname + '/data';
 
@@ -51,7 +51,7 @@ describe('Bitcoind Functionality', function() {
         node: {
           network: regtestNetwork,
           getNetworkName: function() {
-            return 'regtest/bcc';
+            return 'regtest';
           }
         }
       });
@@ -467,7 +467,7 @@ describe('Bitcoind Functionality', function() {
         if (err) {
           return done(err);
         }
-        info.network.should.equal('regtest/bcc');
+        info.network.should.equal('regtest');
         should.exist(info);
         should.exist(info.version);
         should.exist(info.blocks);

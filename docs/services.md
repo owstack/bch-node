@@ -41,7 +41,7 @@ var Bitcoin = bcccore.services.Bitcoin;
 var Web = bcccore.services.Web;
 
 var myNode = new bcccore.Node({
-  network: 'regtest/bcc'
+  network: 'regtest'
   services: [
     {
       name: 'bitcoind',

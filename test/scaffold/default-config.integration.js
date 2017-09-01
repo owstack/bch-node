@@ -10,7 +10,7 @@ describe('#defaultConfig', function() {
 
   it('will return expected configuration', function() {
     var config = JSON.stringify({
-      network: 'livenet/bcc',
+      network: 'livenet',
       port: 3001,
       services: [
         'bitcoind',
@@ -43,7 +43,7 @@ describe('#defaultConfig', function() {
     var home = process.env.HOME;
     var info = defaultConfig();
     info.path.should.equal(home + '/.bcccore');
-    info.config.network.should.equal('livenet/bcc');
+    info.config.network.should.equal('livenet');
     info.config.port.should.equal(3001);
     info.config.services.should.deep.equal(['bitcoind', 'web']);
     var bitcoind = info.config.servicesConfig.bitcoind;
@@ -53,7 +53,7 @@ describe('#defaultConfig', function() {
   });
   it('will include additional services', function() {
     var config = JSON.stringify({
-      network: 'livenet/bcc',
+      network: 'livenet',
       port: 3001,
       services: [
         'bitcoind',
@@ -90,7 +90,7 @@ describe('#defaultConfig', function() {
       additionalServices: ['explorer-api', 'ows-explorer']
     });
     info.path.should.equal(home + '/.bcccore');
-    info.config.network.should.equal('livenet/bcc');
+    info.config.network.should.equal('livenet');
     info.config.port.should.equal(3001);
     info.config.services.should.deep.equal([
       'bitcoind',

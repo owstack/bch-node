@@ -10,7 +10,7 @@ describe('#defaultBaseConfig', function() {
     var home = process.env.HOME;
     var info = defaultBaseConfig();
     info.path.should.equal(cwd);
-    info.config.network.should.equal('livenet/bcc');
+    info.config.network.should.equal('livenet');
     info.config.port.should.equal(3001);
     info.config.services.should.deep.equal(['bitcoind', 'web']);
     var bitcoind = info.config.servicesConfig.bitcoind;
@@ -18,11 +18,11 @@ describe('#defaultBaseConfig', function() {
     bitcoind.spawn.exec.should.equal(path.resolve(__dirname, '../../bin/bitcoind'));
   });
   it('be able to specify a network', function() {
-    var info = defaultBaseConfig({network: 'testnet/bcc'});
-    info.config.network.should.equal('testnet/bcc');
+    var info = defaultBaseConfig({network: 'testnet'});
+    info.config.network.should.equal('testnet');
   });
   it('be able to specify a datadir', function() {
-    var info = defaultBaseConfig({datadir: './data2', network: 'testnet/bcc'});
+    var info = defaultBaseConfig({datadir: './data2', network: 'testnet'});
     info.config.servicesConfig.bitcoind.spawn.datadir.should.equal('./data2');
   });
 });

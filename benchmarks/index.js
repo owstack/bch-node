@@ -30,7 +30,7 @@ var bitcoind = require('../').services.Bitcoin({
   node: {
     datadir: process.env.HOME + '/.bitcoin',
     network: {
-      name: 'testnet/bcc'
+      name: 'testnet'
     }
   }
 });

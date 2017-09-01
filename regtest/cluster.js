@@ -99,7 +99,7 @@ describe('Bitcoin Cluster', function() {
   it('step 1: will connect to three bitcoind daemons', function(done) {
     this.timeout(20000);
     var configuration = {
-      network: 'regtest/bcc',
+      network: 'regtest',
       services: [
         {
           name: 'bitcoind',
@@ -133,7 +133,7 @@ describe('Bitcoin Cluster', function() {
       ]
     };
 
-    var regtest = bcccore.Networks.get('regtest/bcc');
+    var regtest = bcccore.Networks.get('regtest');
     should.exist(regtest);
 
     node = new BcccoreNode(configuration);
