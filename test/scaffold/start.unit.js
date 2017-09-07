@@ -87,7 +87,7 @@ describe('#start', function() {
       services[0].name.should.equal('local');
       services[0].module.should.equal(LocalService);
     });
-    it('will require a local module with "bcccoreNode" in package.json', function() {
+    it('will require a local module with "owsNode" in package.json', function() {
       function LocalService() {}
       LocalService.dependencies = [];
       LocalService.prototype.start = sinon.stub();
@@ -99,9 +99,9 @@ describe('#start', function() {
         } else if (p === 'local/package.json') {
           return {
             name: 'local',
-            bcccoreNode: 'lib/bcccoreNode.js'
+            owsNode: 'lib/owsNode.js'
           };
-        } else if (p === 'local/lib/bcccoreNode.js') {
+        } else if (p === 'local/lib/owsNode.js') {
           return LocalService;
         }
       };
