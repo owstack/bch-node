@@ -1,3 +1,5 @@
+## Deprecated - use ows-node repo instead
+
 Bcccore Node
 ============
 
