@@ -282,7 +282,7 @@ describe('Bitcoin Service', function() {
       var emitter1 = new EventEmitter();
       var emitter2 = new EventEmitter();
       bitcoind.subscriptions.address['2N2JD6wb56AfK4tfmM6PwdVmoYk2dCKf4Br'] = [emitter1, emitter2];
-      bitcoind.unsubscribeAddress(emitter1, ['1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo']);
+      bitcoind.unsubscribeAddress(emitter1, ['HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r']);
       bitcoind.subscriptions.address['2N2JD6wb56AfK4tfmM6PwdVmoYk2dCKf4Br'].length.should.equal(2);
     });
     it('will NOT unsubscribe subscription with missing emitter', function() {
@@ -308,12 +308,12 @@ describe('Bitcoin Service', function() {
       var emitter1 = new EventEmitter();
       var emitter2 = new EventEmitter();
       bitcoind.subscriptions.address['2N2JD6wb56AfK4tfmM6PwdVmoYk2dCKf4Br'] = [emitter1, emitter2];
-      bitcoind.subscriptions.address['1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo'] = [emitter1, emitter2];
+      bitcoind.subscriptions.address['HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r'] = [emitter1, emitter2];
       sinon.spy(bitcoind, 'unsubscribeAddressAll');
       bitcoind.unsubscribeAddress(emitter1);
       bitcoind.unsubscribeAddressAll.callCount.should.equal(1);
       bitcoind.subscriptions.address['2N2JD6wb56AfK4tfmM6PwdVmoYk2dCKf4Br'].length.should.equal(1);
-      bitcoind.subscriptions.address['1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo'].length.should.equal(1);
+      bitcoind.subscriptions.address['HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r'].length.should.equal(1);
     });
   });
 
@@ -330,14 +330,14 @@ describe('Bitcoin Service', function() {
       var emitter1 = new EventEmitter();
       var emitter2 = new EventEmitter();
       bitcoind.subscriptions.address['2N2JD6wb56AfK4tfmM6PwdVmoYk2dCKf4Br'] = [emitter1, emitter2];
-      bitcoind.subscriptions.address['1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo'] = [emitter1, emitter2];
+      bitcoind.subscriptions.address['HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r'] = [emitter1, emitter2];
       bitcoind.subscriptions.address['mgY65WSfEmsyYaYPQaXhmXMeBhwp4EcsQW'] = [emitter2];
-      bitcoind.subscriptions.address['3CMNFxN1oHBc4R1EpboAL5yzHGgE611Xou'] = [emitter1];
+      bitcoind.subscriptions.address['CR9Aex3uR9Brm2etmqio8u6bG7g2uF5ewo'] = [emitter1];
       bitcoind.unsubscribeAddress(emitter1);
       bitcoind.subscriptions.address['2N2JD6wb56AfK4tfmM6PwdVmoYk2dCKf4Br'].length.should.equal(1);
-      bitcoind.subscriptions.address['1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo'].length.should.equal(1);
+      bitcoind.subscriptions.address['HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r'].length.should.equal(1);
       bitcoind.subscriptions.address['mgY65WSfEmsyYaYPQaXhmXMeBhwp4EcsQW'].length.should.equal(1);
-      should.not.exist(bitcoind.subscriptions.address['3CMNFxN1oHBc4R1EpboAL5yzHGgE611Xou']);
+      should.not.exist(bitcoind.subscriptions.address['CR9Aex3uR9Brm2etmqio8u6bG7g2uF5ewo']);
     });
   });
 
@@ -1156,7 +1156,7 @@ describe('Bitcoin Service', function() {
   describe('#_notifyAddressTxidSubscribers', function() {
     it('will emit event if matching addresses', function(done) {
       var bitcoind = new BitcoinService(baseConfig);
-      var address = '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo';
+      var address = 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r';
       bitcoind._getAddressesFromTransaction = sinon.stub().returns([address]);
       var emitter = new EventEmitter();
       bitcoind.subscriptions.address[address] = [emitter];
@@ -1173,7 +1173,7 @@ describe('Bitcoin Service', function() {
     });
     it('will NOT emit event without matching addresses', function() {
       var bitcoind = new BitcoinService(baseConfig);
-      var address = '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo';
+      var address = 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r';
       bitcoind._getAddressesFromTransaction = sinon.stub().returns([address]);
       var emitter = new EventEmitter();
       var txid = '46f24e0c274fc07708b781963576c4c5d5625d926dbb0a17fa865dcd9fe58ea0';
@@ -2216,7 +2216,7 @@ describe('Bitcoin Service', function() {
           getAddressBalance: sinon.stub().callsArgWith(1, {code: -1, message: 'Test error'})
         }
       });
-      var address = '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo';
+      var address = 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r';
       var options = {};
       bitcoind.getAddressBalance(address, options, function(err) {
         err.should.be.instanceof(Error);
@@ -2236,7 +2236,7 @@ describe('Bitcoin Service', function() {
           getAddressBalance: getAddressBalance
         }
       });
-      var address = '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo';
+      var address = 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r';
       var options = {};
       bitcoind.getAddressBalance(address, options, function(err, data) {
         if (err) {
@@ -2268,7 +2268,7 @@ describe('Bitcoin Service', function() {
       var options = {
         queryMempool: false
       };
-      var address = '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo';
+      var address = 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r';
       bitcoind.getAddressUnspentOutputs(address, options, function(err) {
         should.exist(err);
         err.should.be.instanceof(errors.RPCError);
@@ -2279,7 +2279,7 @@ describe('Bitcoin Service', function() {
       var bitcoind = new BitcoinService(baseConfig);
       var expectedUtxos = [
         {
-          address: '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo',
+          address: 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r',
           txid: '46f24e0c274fc07708b781963576c4c5d5625d926dbb0a17fa865dcd9fe58ea0',
           outputIndex: 1,
           script: '76a914f399b4b8894f1153b96fce29f05e6e116eb4c21788ac',
@@ -2297,7 +2297,7 @@ describe('Bitcoin Service', function() {
       var options = {
         queryMempool: false
       };
-      var address = '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo';
+      var address = 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r';
       bitcoind.getAddressUnspentOutputs(address, options, function(err, utxos) {
         if (err) {
           return done(err);
@@ -2311,7 +2311,7 @@ describe('Bitcoin Service', function() {
       var bitcoind = new BitcoinService(baseConfig);
       var expectedUtxos = [
         {
-          address: '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo',
+          address: 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r',
           txid: '46f24e0c274fc07708b781963576c4c5d5625d926dbb0a17fa865dcd9fe58ea0',
           outputIndex: 1,
           script: '76a914f399b4b8894f1153b96fce29f05e6e116eb4c21788ac',
@@ -2330,7 +2330,7 @@ describe('Bitcoin Service', function() {
       var options = {
         queryMempool: false
       };
-      var address = '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo';
+      var address = 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r';
       bitcoind.getAddressUnspentOutputs(address, options, function(err, utxos) {
         if (err) {
           return done(err);
@@ -2354,7 +2354,7 @@ describe('Bitcoin Service', function() {
         {
           txid: 'e9dcf22807db77ac0276b03cc2d3a8b03c4837db8ac6650501ef45af1c807cce',
           satoshis: -7679241,
-          address: '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo',
+          address: 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r',
           index: 0,
           timestamp: 1461342707725,
           prevtxid: '46f24e0c274fc07708b781963576c4c5d5625d926dbb0a17fa865dcd9fe58ea0',
@@ -2363,14 +2363,14 @@ describe('Bitcoin Service', function() {
         {
           txid: 'f637384e9f81f18767ea50e00bce58fc9848b6588a1130529eebba22a410155f',
           satoshis: 100000,
-          address: '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo',
+          address: 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r',
           index: 0,
           timestamp: 1461342833133
         },
         {
           txid: 'f71bccef3a8f5609c7f016154922adbfe0194a96fb17a798c24077c18d0a9345',
           satoshis: 400000,
-          address: '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo',
+          address: 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r',
           index: 1,
           timestamp: 1461342954813
         }
@@ -2378,7 +2378,7 @@ describe('Bitcoin Service', function() {
       var bitcoind = new BitcoinService(baseConfig);
       var confirmedUtxos = [
         {
-          address: '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo',
+          address: 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r',
           txid: '46f24e0c274fc07708b781963576c4c5d5625d926dbb0a17fa865dcd9fe58ea0',
           outputIndex: 1,
           script: '76a914f399b4b8894f1153b96fce29f05e6e116eb4c21788ac',
@@ -2388,18 +2388,18 @@ describe('Bitcoin Service', function() {
       ];
       var expectedUtxos = [
         {
-          address: '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo',
+          address: 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r',
           outputIndex: 1,
           satoshis: 400000,
-          script: '76a914809dc14496f99b6deb722cf46d89d22f4beb8efd88ac',
+          script: 'a9143c3fa3d4adcaf8f52d5b1843975e12254826993787',
           timestamp: 1461342954813,
           txid: 'f71bccef3a8f5609c7f016154922adbfe0194a96fb17a798c24077c18d0a9345'
         },
         {
-          address: '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo',
+          address: 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r',
           outputIndex: 0,
           satoshis: 100000,
-          script: '76a914809dc14496f99b6deb722cf46d89d22f4beb8efd88ac',
+          script: 'a9143c3fa3d4adcaf8f52d5b1843975e12254826993787',
           timestamp: 1461342833133,
           txid: 'f637384e9f81f18767ea50e00bce58fc9848b6588a1130529eebba22a410155f'
         }
@@ -2417,7 +2417,7 @@ describe('Bitcoin Service', function() {
       var options = {
         queryMempool: true
       };
-      var address = '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo';
+      var address = 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r';
       bitcoind.getAddressUnspentOutputs(address, options, function(err, utxos) {
         if (err) {
           return done(err);
@@ -2432,7 +2432,7 @@ describe('Bitcoin Service', function() {
         {
           txid: 'e9dcf22807db77ac0276b03cc2d3a8b03c4837db8ac6650501ef45af1c807cce',
           satoshis: -7679241,
-          address: '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo',
+          address: 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r',
           index: 0,
           timestamp: 1461342707725,
           prevtxid: '46f24e0c274fc07708b781963576c4c5d5625d926dbb0a17fa865dcd9fe58ea0',
@@ -2441,7 +2441,7 @@ describe('Bitcoin Service', function() {
         {
           txid: 'e9dcf22807db77ac0276b03cc2d3a8b03c4837db8ac6650501ef45af1c807cce',
           satoshis: -7679241,
-          address: '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo',
+          address: 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r',
           index: 1,
           timestamp: 1461342707725,
           prevtxid: '46f24e0c274fc07708b781963576c4c5d5625d926dbb0a17fa865dcd9fe58ea0',
@@ -2451,7 +2451,7 @@ describe('Bitcoin Service', function() {
       var bitcoind = new BitcoinService(baseConfig);
       var confirmedUtxos = [
         {
-          address: '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo',
+          address: 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r',
           txid: '46f24e0c274fc07708b781963576c4c5d5625d926dbb0a17fa865dcd9fe58ea0',
           outputIndex: 1,
           script: '76a914f399b4b8894f1153b96fce29f05e6e116eb4c21788ac',
@@ -2459,7 +2459,7 @@ describe('Bitcoin Service', function() {
           height: 207111
         },
         {
-          address: '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo',
+          address: 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r',
           txid: '46f24e0c274fc07708b781963576c4c5d5625d926dbb0a17fa865dcd9fe58ea0',
           outputIndex: 2,
           script: '76a914f399b4b8894f1153b96fce29f05e6e116eb4c21788ac',
@@ -2480,7 +2480,7 @@ describe('Bitcoin Service', function() {
       var options = {
         queryMempool: true
       };
-      var address = '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo';
+      var address = 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r';
       bitcoind.getAddressUnspentOutputs(address, options, function(err, utxos) {
         if (err) {
           return done(err);
@@ -2494,7 +2494,7 @@ describe('Bitcoin Service', function() {
         {
           txid: 'e9dcf22807db77ac0276b03cc2d3a8b03c4837db8ac6650501ef45af1c807cce',
           satoshis: -7679241,
-          address: '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo',
+          address: 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r',
           index: 0,
           timestamp: 1461342707725,
           prevtxid: '46f24e0c274fc07708b781963576c4c5d5625d926dbb0a17fa865dcd9fe58ea0',
@@ -2503,7 +2503,7 @@ describe('Bitcoin Service', function() {
         {
           txid: 'e9dcf22807db77ac0276b03cc2d3a8b03c4837db8ac6650501ef45af1c807cce',
           satoshis: -7679241,
-          address: '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo',
+          address: 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r',
           index: 0,
           timestamp: 1461342707725,
           prevtxid: '46f24e0c274fc07708b781963576c4c5d5625d926dbb0a17fa865dcd9fe58ea0',
@@ -2512,7 +2512,7 @@ describe('Bitcoin Service', function() {
         {
           txid: 'e9dcf22807db77ac0276b03cc2d3a8b03c4837db8ac6650501ef45af1c807cce',
           satoshis: -7679241,
-          address: '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo',
+          address: 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r',
           index: 1,
           timestamp: 1461342707725,
           prevtxid: '46f24e0c274fc07708b781963576c4c5d5625d926dbb0a17fa865dcd9fe58ea0',
@@ -2521,7 +2521,7 @@ describe('Bitcoin Service', function() {
         {
           txid: 'e9dcf22807db77ac0276b03cc2d3a8b03c4837db8ac6650501ef45af1c807cce',
           satoshis: 100000,
-          address: '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo',
+          address: 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r',
           index: 1,
           script: '76a914809dc14496f99b6deb722cf46d89d22f4beb8efd88ac',
           timestamp: 1461342833133
@@ -2530,7 +2530,7 @@ describe('Bitcoin Service', function() {
       var bitcoind = new BitcoinService(baseConfig);
       var confirmedUtxos = [
         {
-          address: '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo',
+          address: 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r',
           txid: '46f24e0c274fc07708b781963576c4c5d5625d926dbb0a17fa865dcd9fe58ea0',
           outputIndex: 0,
           script: '76a914f399b4b8894f1153b96fce29f05e6e116eb4c21788ac',
@@ -2538,7 +2538,7 @@ describe('Bitcoin Service', function() {
           height: 207111
         },
         {
-          address: '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo',
+          address: 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r',
           txid: '46f24e0c274fc07708b781963576c4c5d5625d926dbb0a17fa865dcd9fe58ea0',
           outputIndex: 1,
           script: '76a914f399b4b8894f1153b96fce29f05e6e116eb4c21788ac',
@@ -2546,7 +2546,7 @@ describe('Bitcoin Service', function() {
           height: 207111
         },
         {
-          address: '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo',
+          address: 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r',
           txid: '46f24e0c274fc07708b781963576c4c5d5625d926dbb0a17fa865dcd9fe58ea0',
           outputIndex: 2,
           script: '76a914f399b4b8894f1153b96fce29f05e6e116eb4c21788ac',
@@ -2567,7 +2567,7 @@ describe('Bitcoin Service', function() {
       var options = {
         queryMempool: true
       };
-      var address = '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo';
+      var address = 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r';
       bitcoind.getAddressUnspentOutputs(address, options, function(err, utxos) {
         if (err) {
           return done(err);
@@ -2581,28 +2581,28 @@ describe('Bitcoin Service', function() {
         {
           txid: '46f24e0c274fc07708b781963576c4c5d5625d926dbb0a17fa865dcd9fe58ea0',
           satoshis: 7679241,
-          address: '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo',
+          address: 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r',
           index: 0,
           timestamp: 1461342707724
         },
         {
           txid: '46f24e0c274fc07708b781963576c4c5d5625d926dbb0a17fa865dcd9fe58ea0',
           satoshis: 7679241,
-          address: '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo',
+          address: 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r',
           index: 1,
           timestamp: 1461342707724
         },
         {
           txid: '46f24e0c274fc07708b781963576c4c5d5625d926dbb0a17fa865dcd9fe58ea0',
           satoshis: 7679241,
-          address: '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo',
+          address: 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r',
           timestamp: 1461342707724,
           index: 2,
         },
         {
           txid: 'e9dcf22807db77ac0276b03cc2d3a8b03c4837db8ac6650501ef45af1c807cce',
           satoshis: -7679241,
-          address: '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo',
+          address: 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r',
           index: 0,
           timestamp: 1461342707725,
           prevtxid: '46f24e0c274fc07708b781963576c4c5d5625d926dbb0a17fa865dcd9fe58ea0',
@@ -2611,7 +2611,7 @@ describe('Bitcoin Service', function() {
         {
           txid: 'e9dcf22807db77ac0276b03cc2d3a8b03c4837db8ac6650501ef45af1c807cce',
           satoshis: -7679241,
-          address: '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo',
+          address: 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r',
           index: 0,
           timestamp: 1461342707725,
           prevtxid: '46f24e0c274fc07708b781963576c4c5d5625d926dbb0a17fa865dcd9fe58ea0',
@@ -2620,7 +2620,7 @@ describe('Bitcoin Service', function() {
         {
           txid: 'e9dcf22807db77ac0276b03cc2d3a8b03c4837db8ac6650501ef45af1c807cce',
           satoshis: -7679241,
-          address: '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo',
+          address: 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r',
           index: 1,
           timestamp: 1461342707725,
           prevtxid: '46f24e0c274fc07708b781963576c4c5d5625d926dbb0a17fa865dcd9fe58ea0',
@@ -2629,7 +2629,7 @@ describe('Bitcoin Service', function() {
         {
           txid: 'e9dcf22807db77ac0276b03cc2d3a8b03c4837db8ac6650501ef45af1c807cce',
           satoshis: 100000,
-          address: '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo',
+          address: 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r',
           index: 1,
           timestamp: 1461342833133
         }
@@ -2649,7 +2649,7 @@ describe('Bitcoin Service', function() {
       var options = {
         queryMempool: true
       };
-      var address = '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo';
+      var address = 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r';
       bitcoind.getAddressUnspentOutputs(address, options, function(err, utxos) {
         if (err) {
           return done(err);
@@ -2658,7 +2658,7 @@ describe('Bitcoin Service', function() {
         utxos[0].address.should.equal(address);
         utxos[0].txid.should.equal('e9dcf22807db77ac0276b03cc2d3a8b03c4837db8ac6650501ef45af1c807cce');
         utxos[0].outputIndex.should.equal(1);
-        utxos[0].script.should.equal('76a914809dc14496f99b6deb722cf46d89d22f4beb8efd88ac');
+        utxos[0].script.should.equal('a9143c3fa3d4adcaf8f52d5b1843975e12254826993787');
         utxos[0].timestamp.should.equal(1461342833133);
         done();
       });
@@ -2668,7 +2668,7 @@ describe('Bitcoin Service', function() {
         {
           txid: 'e9dcf22807db77ac0276b03cc2d3a8b03c4837db8ac6650501ef45af1c807cce',
           satoshis: 0,
-          address: '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo',
+          address: 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r',
           index: 0,
           timestamp: 1461342707725,
           prevtxid: '46f24e0c274fc07708b781963576c4c5d5625d926dbb0a17fa865dcd9fe58ea0',
@@ -2678,7 +2678,7 @@ describe('Bitcoin Service', function() {
       var bitcoind = new BitcoinService(baseConfig);
       var confirmedUtxos = [
         {
-          address: '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo',
+          address: 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r',
           txid: '46f24e0c274fc07708b781963576c4c5d5625d926dbb0a17fa865dcd9fe58ea0',
           outputIndex: 1,
           script: '76a914f399b4b8894f1153b96fce29f05e6e116eb4c21788ac',
@@ -2699,7 +2699,7 @@ describe('Bitcoin Service', function() {
       var options = {
         queryMempool: true
       };
-      var address = '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo';
+      var address = 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r';
       bitcoind.getAddressUnspentOutputs(address, options, function(err, utxos) {
         if (err) {
           return done(err);
@@ -2713,7 +2713,7 @@ describe('Bitcoin Service', function() {
         {
           txid: 'e9dcf22807db77ac0276b03cc2d3a8b03c4837db8ac6650501ef45af1c807cce',
           satoshis: 10000,
-          address: '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo',
+          address: 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r',
           index: 0,
           timestamp: 1461342707725
         }
@@ -2721,7 +2721,7 @@ describe('Bitcoin Service', function() {
       var bitcoind = new BitcoinService(baseConfig);
       var confirmedUtxos = [
         {
-          address: '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo',
+          address: 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r',
           txid: '46f24e0c274fc07708b781963576c4c5d5625d926dbb0a17fa865dcd9fe58ea0',
           outputIndex: 1,
           script: '76a914f399b4b8894f1153b96fce29f05e6e116eb4c21788ac',
@@ -2742,7 +2742,7 @@ describe('Bitcoin Service', function() {
       var options = {
         queryMempool: true
       };
-      var address = '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo';
+      var address = 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r';
       bitcoind.getAddressUnspentOutputs(address, options, function(err, utxos) {
         if (err) {
           return done(err);
@@ -2761,7 +2761,7 @@ describe('Bitcoin Service', function() {
       var options = {
         queryMempool: true
       };
-      var address = '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo';
+      var address = 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r';
       bitcoind.getAddressUnspentOutputs(address, options, function(err) {
         err.should.be.instanceOf(Error);
         done();
@@ -2776,7 +2776,7 @@ describe('Bitcoin Service', function() {
         }
       });
       var options = {};
-      var address = '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo';
+      var address = 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r';
       bitcoind.getAddressUnspentOutputs(address, options, function(err) {
         getAddressMempool.callCount.should.equal(1);
         done();
@@ -2894,7 +2894,7 @@ describe('Bitcoin Service', function() {
         }
       });
       var options = {};
-      var address = '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo';
+      var address = 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r';
       bitcoind.getAddressTxids(address, options, function(err) {
         should.exist(err);
         err.should.be.instanceof(errors.RPCError);
@@ -2910,7 +2910,7 @@ describe('Bitcoin Service', function() {
       var options = {
         queryMempool: false
       };
-      var address = '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo';
+      var address = 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r';
       bitcoind.getAddressTxids(address, options, function(err) {
         should.exist(err);
         err.should.be.instanceof(errors.RPCError);
@@ -2940,7 +2940,7 @@ describe('Bitcoin Service', function() {
       var options = {
         queryMempool: false
       };
-      var address = '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo';
+      var address = 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r';
       bitcoind.getAddressTxids(address, options, function(err, txids) {
         if (err) {
           return done(err);
@@ -2966,7 +2966,7 @@ describe('Bitcoin Service', function() {
       var options = {
         queryMempool: false
       };
-      var address = '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo';
+      var address = 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r';
       bitcoind.getAddressTxids(address, options, function(err, txids) {
         if (err) {
           return done(err);
@@ -3004,7 +3004,7 @@ describe('Bitcoin Service', function() {
         start: 4,
         end: 2
       };
-      var address = '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo';
+      var address = 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r';
       bitcoind.getAddressTxids(address, options, function(err, txids) {
         if (err) {
           return done(err);
@@ -3051,7 +3051,7 @@ describe('Bitcoin Service', function() {
           getAddressMempool: getAddressMempool
         }
       });
-      var address = '1Cj4UZWnGWAJH1CweTMgPLQMn26WRMfXmo';
+      var address = 'HC1hAdrx7APHg1DkE4bVLsZhY1SE5Dik1r';
       bitcoind.getAddressTxids(address, {queryMempool: false}, function(err, txids) {
         if (err) {
           return done(err);
@@ -3317,37 +3317,37 @@ describe('Bitcoin Service', function() {
   describe('#_getAddressStrings', function() {
     it('will get address strings from bcccore addresses', function() {
       var addresses = [
-        bcccore.Address('1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62i'),
-        bcccore.Address('3CMNFxN1oHBc4R1EpboAL5yzHGgE611Xou'),
+        bcccore.Address('CRZoT4EafXoYLNJm3bPpTjK3h4q1FSxet4'),
+        bcccore.Address('CR9Aex3uR9Brm2etmqio8u6bG7g2uF5ewo'),
       ];
       var bitcoind = new BitcoinService(baseConfig);
       var strings = bitcoind._getAddressStrings(addresses);
-      strings[0].should.equal('1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62i');
-      strings[1].should.equal('3CMNFxN1oHBc4R1EpboAL5yzHGgE611Xou');
+      strings[0].should.equal('CRZoT4EafXoYLNJm3bPpTjK3h4q1FSxet4');
+      strings[1].should.equal('CR9Aex3uR9Brm2etmqio8u6bG7g2uF5ewo');
     });
     it('will get address strings from strings', function() {
       var addresses = [
-        '1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62i',
-        '3CMNFxN1oHBc4R1EpboAL5yzHGgE611Xou',
+        'CRZoT4EafXoYLNJm3bPpTjK3h4q1FSxet4',
+        'CR9Aex3uR9Brm2etmqio8u6bG7g2uF5ewo',
       ];
       var bitcoind = new BitcoinService(baseConfig);
       var strings = bitcoind._getAddressStrings(addresses);
-      strings[0].should.equal('1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62i');
-      strings[1].should.equal('3CMNFxN1oHBc4R1EpboAL5yzHGgE611Xou');
+      strings[0].should.equal('CRZoT4EafXoYLNJm3bPpTjK3h4q1FSxet4');
+      strings[1].should.equal('CR9Aex3uR9Brm2etmqio8u6bG7g2uF5ewo');
     });
     it('will get address strings from mixture of types', function() {
       var addresses = [
-        bcccore.Address('1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62i'),
-        '3CMNFxN1oHBc4R1EpboAL5yzHGgE611Xou',
+        bcccore.Address('CRZoT4EafXoYLNJm3bPpTjK3h4q1FSxet4'),
+        'CR9Aex3uR9Brm2etmqio8u6bG7g2uF5ewo',
       ];
       var bitcoind = new BitcoinService(baseConfig);
       var strings = bitcoind._getAddressStrings(addresses);
-      strings[0].should.equal('1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62i');
-      strings[1].should.equal('3CMNFxN1oHBc4R1EpboAL5yzHGgE611Xou');
+      strings[0].should.equal('CRZoT4EafXoYLNJm3bPpTjK3h4q1FSxet4');
+      strings[1].should.equal('CR9Aex3uR9Brm2etmqio8u6bG7g2uF5ewo');
     });
     it('will give error with unknown', function() {
       var addresses = [
-        bcccore.Address('1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62i'),
+        bcccore.Address('CRZoT4EafXoYLNJm3bPpTjK3h4q1FSxet4'),
         0,
       ];
       var bitcoind = new BitcoinService(baseConfig);
