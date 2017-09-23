@@ -195,24 +195,28 @@ describe('Bcccore Node', function() {
       node._unloadedServices = [
         {
           name: 'chain',
+          moduleName: 'chain',
           module: {
             dependencies: ['db']
           }
         },
         {
           name: 'db',
+          moduleName: 'db',
           module: {
             dependencies: ['daemon', 'p2p']
           }
         },
         {
           name:'daemon',
+          moduleName: 'daemon',
           module: {
             dependencies: []
           }
         },
         {
           name: 'p2p',
+          moduleName: 'p2p',
           module: {
             dependencies: []
           }
