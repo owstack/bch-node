@@ -9,8 +9,7 @@
     "url": "https://github.com/owstack/bcccore-node/issues"
   },
   "bin": {
-    "bcccore-node": "./bin/bcccore-node",
-    "bitcoind": "./bin/bitcoind"
+    "bcccore-node": "./bin/bcccore-node"
   },
   "scripts": {
     "test": "mocha -R spec --recursive",

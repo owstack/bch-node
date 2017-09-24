@@ -1,36 +1,38 @@
 FROM node:8
 
 # update apt-get
-USER root
-RUN apt-get update
+# RUN apt-get update && apt-get install -y libgmp-dev
 
-# Build environment variables
+# Setup environment variables
+ENV NODE_ENV=production
 ENV HOME_PATH=/home/ows
-ENV APP=$HOME_PATH/node
 
-# Set up non root user to run install and build
+ENV PKG_NAME=bcccore-node
+ENV PKG_DIR=$HOME_PATH/$PKG_NAME
+
+ENV APP_NAME=ows-bitcoincash-node
+ENV APP_DIR=$HOME_PATH/$APP_NAME
+
+ENV BITCOIN_DATA=/data
+
+# Set up non root user
 RUN useradd --user-group --create-home --shell /bin/false ows
 
 # Set up folder and add install files
-RUN mkdir -p $APP
-COPY package.json $APP
-
-# Any kind of copying from the host must be down as root so this sets
-# the permissions for the app user to be able to read the files
-RUN chown -R ows:ows $HOME_PATH/*
-
-USER ows
-WORKDIR $APP
-COPY . $APP
-
-# Install app dependencies
-RUN pwd
-RUN ls
+RUN mkdir -p $PKG_DIR
+RUN mkdir -p $BITCOIN_DATA
+COPY package.json $PKG_DIR
+WORKDIR $PKG_DIR
 RUN npm install
+COPY . $PKG_DIR
+RUN npm link
 
-# Copy the app source files
-USER root
+WORKDIR $HOME_PATH
+RUN $PKG_NAME create -d $BITCOIN_DATA $APP_NAME
+WORKDIR $APP_DIR
+RUN $PKG_NAME install bcccore-explorer-api
+RUN $PKG_NAME install bcccore-wallet-service
+
 RUN chown -R ows:ows $HOME_PATH/*
-ENV PATH=$PATH:./bin/
 
-CMD [ "bcccore-node" ]
+CMD ["bcccore-node","start"]
