@@ -1,0 +1,21 @@
+{
+  "network": "livenet",
+  "port": 3001,
+  "services": [
+    "explorer-api",
+    "bitcoind",
+    "web"
+  ],
+  "servicesConfig": {
+    "bitcoind": {
+      "spawn": {
+        "datadir": "/data",
+        "exec": "/usr/local/lib/node_modules/bcccore-node/bin/bitcoind"
+      }
+    },
+    "explorer-api": {
+      "module": "bcccore-explorer-api",
+      "apiPrefix": "explorer-api"
+    }
+  }
+}
