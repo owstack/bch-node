@@ -9,8 +9,15 @@
   "servicesConfig": {
     "bitcoind": {
       "spawn": {
-        "datadir": "/data",
-        "exec": "/usr/local/lib/node_modules/bcccore-node/bin/bitcoind"
+        "datadir": "/home/ows/config",
+        "exec": "docker"
+      },
+      "connect": {
+        "rpcprotocol": "http",
+        "rpchost": "bitcoin-abc",
+        "rpcuser": "bitcoin",
+        "rpcpassword": "local321",
+        "rpcstrict": true
       }
     },
     "explorer-api": {
