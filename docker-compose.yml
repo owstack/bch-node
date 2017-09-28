@@ -20,17 +20,15 @@ services:
       - bitcoin-abc-data-dir:/data
     depends_on:
       - "bitcoin-abc-conf"
-  ows-bitcoin-cash-node:
+  bcc-node:
     build: .
     ports:
       - "3001:3001"
     depends_on:
       - "bitcoin-abc"
     volumes:
-    #   - bitcoin-abc-data-dir:/data
       - bcccore-conf-dir:/home/ows/config
     command: "bcccore-node start -c /home/ows/config"
-    # command: "cat /home/ows/config/bcccore-node.json"
 volumes:
   bitcoin-abc-data-dir:
   bcccore-conf-dir:
