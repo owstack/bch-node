@@ -9,12 +9,9 @@
     "url": "https://github.com/owstack/bcccore-node/issues"
   },
   "bin": {
-    "bcccore-node": "./bin/bcccore-node",
-    "bitcoind": "./bin/bitcoind"
+    "bcccore-node": "./bin/bcccore-node"
   },
   "scripts": {
-    "preinstall": "./scripts/download",
-    "verify": "./scripts/download --skip-bitcoin-download --verify-bitcoin-download",
     "test": "mocha -R spec --recursive",
     "regtest": "./scripts/regtest",
     "jshint": "jshint --reporter=node_modules/jshint-stylish ./lib",
