@@ -11,7 +11,7 @@ RUN useradd --user-group --create-home --shell /bin/false ows
 ENV NODE_ENV=production
 ENV HOME_PATH=/home/ows
 
-ENV PKG_NAME=bcccore-node
+ENV PKG_NAME=bch-node
 ENV PKG_DIR=$HOME_PATH/$PKG_NAME
 
 ENV APP_NAME=bitcoin-cash-services
@@ -30,12 +30,12 @@ RUN chgrp ows /usr/local/lib/node_modules
 RUN chgrp ows /usr/local/bin
 
 USER ows
-RUN npm install -g owstack/bcccore-node
+RUN npm install -g owstack/bch-node
 
 WORKDIR $HOME_PATH
 RUN $PKG_NAME create -d $BITCOIN_DATA $APP_NAME
 WORKDIR $APP_DIR
-RUN $PKG_NAME install https://github.com/owstack/bcccore-explorer-api.git
-RUN $PKG_NAME install https://github.com/owstack/bcccore-wallet-service.git
+RUN $PKG_NAME install https://github.com/owstack/bch-explorer-api.git
+RUN $PKG_NAME install https://github.com/owstack/bch-wallet-service.git
 USER root
-CMD ["bcccore-node","start"]
+CMD ["bch-node","start"]

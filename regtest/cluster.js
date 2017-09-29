@@ -6,14 +6,14 @@ var spawn = require('child_process').spawn;
 
 var BitcoinRPC = require('bitcoind-rpc');
 var rimraf = require('rimraf');
-var bcccore = require('bcccore-lib');
+var bch = require('bch-lib');
 var chai = require('chai');
 var should = chai.should();
 
 var index = require('..');
 var log = index.log;
 log.debug = function() {};
-var BcccoreNode = index.Node;
+var BchNode = index.Node;
 var BitcoinService = index.services.Bitcoin;
 
 describe('Bitcoin Cluster', function() {
@@ -133,10 +133,10 @@ describe('Bitcoin Cluster', function() {
       ]
     };
 
-    var regtest = bcccore.Networks.get('regtest');
+    var regtest = bch.Networks.get('regtest');
     should.exist(regtest);
 
-    node = new BcccoreNode(configuration);
+    node = new BchNode(configuration);
 
     node.on('error', function(err) {
       log.error(err);

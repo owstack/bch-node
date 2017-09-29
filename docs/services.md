@@ -1,11 +1,11 @@
 # Services
-Bcccore Node has a service module system that can start up additional services that can include additional:
+Bch Node has a service module system that can start up additional services that can include additional:
 - Blockchain indexes (e.g. querying balances for addresses)
 - API methods
 - HTTP routes
 - Event types to publish and subscribe
 
-The `bcccore-node.json` file describes which services will load for a node:
+The `bch-node.json` file describes which services will load for a node:
 
 ```json
 {
@@ -20,27 +20,27 @@ Services correspond with a Node.js module as described in 'package.json', for ex
 ```json
 {
   "dependencies": {
-    "bcccore-lib": "^0.13.7",
-    "bcccore-node": "^0.2.0",
-    "bcccore-explorer-api": "^3.0.0"
+    "bch-lib": "^0.13.7",
+    "bch-node": "^0.2.0",
+    "bch-explorer-api": "^3.0.0"
   }
 }
 ```
 
-_Note:_ If you already have a bcccore-node database, and you want to query data from previous blocks in the blockchain, you will need to reindex. Reindexing right now means deleting your bcccore-node database and resyncing.
+_Note:_ If you already have a bch-node database, and you want to query data from previous blocks in the blockchain, you will need to reindex. Reindexing right now means deleting your bch-node database and resyncing.
 
 ## Using Services Programmatically
 If, instead, you would like to run a custom node, you can include services by including them in your configuration object when initializing a new node.
 
 ```js
-//Require bcccore
-var bcccore = require('bcccore-node');
+//Require bch
+var bch = require('bch-node');
 
 //Services
-var Bitcoin = bcccore.services.Bitcoin;
-var Web = bcccore.services.Web;
+var Bitcoin = bch.services.Bitcoin;
+var Web = bch.services.Web;
 
-var myNode = new bcccore.Node({
+var myNode = new bch.Node({
   network: 'regtest'
   services: [
     {
@@ -49,7 +49,7 @@ var myNode = new bcccore.Node({
       config: {
         spawn: {
           datadir: '/home/<username>/.bitcoin',
-          exec: '/home/<username>/bcccore-node/bin/bitcoind'
+          exec: '/home/<username>/bch-node/bin/bitcoind'
         }
       }
     },

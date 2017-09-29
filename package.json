@@ -1,15 +1,15 @@
 {
-  "name": "bcccore-node",
-  "description": "Bitcoin Cash full node with extended capabilities using Bcccore.",
+  "name": "bch-node",
+  "description": "Bitcoin Cash full node with extended capabilities using Bch.",
   "version": "0.0.1",
   "main": "./index.js",
-  "repository": "git://github.com/owstack/bcccore-node.git",
-  "homepage": "https://github.com/owstack/bcccore-node",
+  "repository": "git://github.com/owstack/bch-node.git",
+  "homepage": "https://github.com/owstack/bch-node",
   "bugs": {
-    "url": "https://github.com/owstack/bcccore-node/issues"
+    "url": "https://github.com/owstack/bch-node/issues"
   },
   "bin": {
-    "bcccore-node": "./bin/bcccore-node"
+    "bch-node": "./bin/bch-node"
   },
   "scripts": {
     "test": "mocha -R spec --recursive",
@@ -25,8 +25,8 @@
   "dependencies": {
     "async": "^1.3.0",
     "bitcoind-rpc": "https://github.com/owstack/bitcoind-rpc",
-    "bcccore-explorer-api": "https://github.com/owstack/bcccore-explorer-api",
-    "bcccore-lib": "https://github.com/owstack/bcccore-lib",
+    "bch-explorer-api": "https://github.com/owstack/bch-explorer-api",
+    "bch-lib": "https://github.com/owstack/bch-lib",
     "body-parser": "^1.13.3",
     "colors": "^1.1.2",
     "commander": "^2.8.1",
@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "benchmark": "1.0.0",
-    "bcccore-p2p": "https://github.com/owstack/bcccore-p2p",
+    "bch-p2p": "https://github.com/owstack/bch-p2p",
     "chai": "^3.5.0",
     "coveralls": "^2.11.9",
     "istanbul": "^0.4.3",

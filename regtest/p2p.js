@@ -6,13 +6,13 @@ var path = require('path');
 var index = require('..');
 var log = index.log;
 
-var p2p = require('bcccore-p2p');
+var p2p = require('bch-p2p');
 var Peer = p2p.Peer;
 var Messages = p2p.Messages;
 var chai = require('chai');
-var bcccore = require('bcccore-lib');
-var Transaction = bcccore.Transaction;
-var BN = bcccore.crypto.BN;
+var bch = require('bch-lib');
+var Transaction = bch.Transaction;
+var BN = bch.crypto.BN;
 var async = require('async');
 var rimraf = require('rimraf');
 var bitcoind;
@@ -29,9 +29,9 @@ var client;
 var messages;
 var peer;
 var coinbasePrivateKey;
-var privateKey = bcccore.PrivateKey();
-var destKey = bcccore.PrivateKey();
-var BufferUtil = bcccore.util.buffer;
+var privateKey = bch.PrivateKey();
+var destKey = bch.PrivateKey();
+var BufferUtil = bch.util.buffer;
 var blocks;
 
 describe('P2P Functionality', function() {
@@ -40,8 +40,8 @@ describe('P2P Functionality', function() {
     this.timeout(100000);
 
     // enable regtest
-    bcccore.Networks.enableRegtest();
-    var regtestNetwork = bcccore.Networks.get('regtest');
+    bch.Networks.enableRegtest();
+    var regtestNetwork = bch.Networks.get('regtest');
     var datadir = __dirname + '/data';
 
     rimraf(datadir + '/regtest', function(err) {
@@ -55,7 +55,7 @@ describe('P2P Functionality', function() {
           exec: path.resolve(__dirname, '../bin/bitcoind')
         },
         node: {
-          network: bcccore.Networks.testnet
+          network: bch.Networks.testnet
         }
       });
 
@@ -130,11 +130,11 @@ describe('P2P Functionality', function() {
                         throw err;
                       }
                       utxo.privateKeyWIF = privresponse.result;
-                      var tx = bcccore.Transaction();
+                      var tx = bch.Transaction();
                       tx.from(utxo);
                       tx.change(privateKey.toAddress());
                       tx.to(destKey.toAddress(), utxo.amount * 1e8 - 1000);
-                      tx.sign(bcccore.PrivateKey.fromWIF(utxo.privateKeyWIF));
+                      tx.sign(bch.PrivateKey.fromWIF(utxo.privateKeyWIF));
                       txs.push(tx);
                       finished();
                     });

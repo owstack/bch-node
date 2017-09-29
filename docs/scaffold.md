@@ -1,20 +1,20 @@
 # Scaffold
-A collection of functions for creating, managing, starting, stopping and interacting with a Bcccore node.
+A collection of functions for creating, managing, starting, stopping and interacting with a Bch node.
 
 ## Install
-This function will add a service to a node by installing the necessary dependencies and modifying the `bcccore-node.json` configuration.
+This function will add a service to a node by installing the necessary dependencies and modifying the `bch-node.json` configuration.
 
 ## Start
-This function will load a configuration file `bcccore-node.json` and instantiate and start a node based on the configuration.
+This function will load a configuration file `bch-node.json` and instantiate and start a node based on the configuration.
 
 ## Find Config
-This function will recursively find a configuration `bcccore-node.json` file in parent directories and return the result.
+This function will recursively find a configuration `bch-node.json` file in parent directories and return the result.
 
 ## Default Config
 This function will return a default configuration with the default services based on environment variables, and will default to using the standard `/home/user/.bitcoin` data directory.
 
 ## Uninstall
-This function will remove a service from a node by uninstalling the necessary dependencies and modifying the `bcccore-node.json` configuration.
+This function will remove a service from a node by uninstalling the necessary dependencies and modifying the `bch-node.json` configuration.
 
 ## Call Method
 This function will call an API method on a node via the JSON-RPC interface.
