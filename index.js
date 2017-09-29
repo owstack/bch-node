@@ -21,7 +21,7 @@ module.exports.scaffold.defaultConfig = require('./lib/scaffold/default-config')
 module.exports.cli = {};
 module.exports.cli.main = require('./lib/cli/main');
 module.exports.cli.daemon = require('./lib/cli/daemon');
-module.exports.cli.bch = require('./lib/cli/bch');
-module.exports.cli.bchd = require('./lib/cli/bchd');
+module.exports.cli.bchnode = require('./lib/cli/bchnode');
+module.exports.cli.bchnoded = require('./lib/cli/bchnoded');
 
 module.exports.lib = require('bch-lib');

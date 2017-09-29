@@ -6,7 +6,7 @@ var spawn = require('child_process').spawn;
 
 var BitcoinRPC = require('bitcoind-rpc');
 var rimraf = require('rimraf');
-var bch = require('bch-lib');
+var bchLib = require('bch-lib');
 var chai = require('chai');
 var should = chai.should();
 
@@ -133,7 +133,7 @@ describe('Bitcoin Cluster', function() {
       ]
     };
 
-    var regtest = bch.Networks.get('regtest');
+    var regtest = bchLib.Networks.get('regtest');
     should.exist(regtest);
 
     node = new BchNode(configuration);

@@ -33,14 +33,14 @@ _Note:_ If you already have a bch-node database, and you want to query data from
 If, instead, you would like to run a custom node, you can include services by including them in your configuration object when initializing a new node.
 
 ```js
-//Require bch
-var bch = require('bch-node');
+//Require bch-node
+var bchNode = require('bch-node');
 
 //Services
-var Bitcoin = bch.services.Bitcoin;
-var Web = bch.services.Web;
+var Bitcoin = bchNode.services.Bitcoin;
+var Web = bchNode.services.Web;
 
-var myNode = new bch.Node({
+var myNode = new bchNode.Node({
   network: 'regtest'
   services: [
     {
