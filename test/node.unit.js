@@ -2,15 +2,15 @@
 
 var should = require('chai').should();
 var sinon = require('sinon');
-var bcccore = require('bcccore-lib');
-var Networks = bcccore.Networks;
+var bch = require('bch-lib');
+var Networks = bch.Networks;
 var proxyquire = require('proxyquire');
 var util = require('util');
 var BaseService = require('../lib/service');
 var index = require('../lib');
 var log = index.log;
 
-describe('Bcccore Node', function() {
+describe('Bch Node', function() {
 
   var baseConfig = {};
 
@@ -429,7 +429,7 @@ describe('Bcccore Node', function() {
 
   describe('#getNetworkName', function() {
     afterEach(function() {
-      bcccore.Networks.disableRegtest();
+      bch.Networks.disableRegtest();
     });
     it('it will return the network name for livenet', function() {
       var node = new Node(baseConfig);

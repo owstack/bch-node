@@ -1,5 +1,5 @@
 # Bus
-The bus provides a way to subscribe to events from any of the services running. It's implemented abstract from transport specific implementation. The primary use of the bus in Bcccore Node is for subscribing to events via a web socket.
+The bus provides a way to subscribe to events from any of the services running. It's implemented abstract from transport specific implementation. The primary use of the bus in Bch Node is for subscribing to events via a web socket.
 
 ## Opening/Closing
 

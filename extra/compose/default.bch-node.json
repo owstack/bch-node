@@ -21,7 +21,7 @@
       }
     },
     "explorer-api": {
-      "module": "bcccore-explorer-api",
+      "module": "bch-explorer-api",
       "apiPrefix": "explorer-api"
     }
   }

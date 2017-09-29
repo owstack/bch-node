@@ -8,7 +8,7 @@ var maxTime = 20;
 console.log('Bitcoin Service native interface vs. Bitcoin JSON RPC interface');
 console.log('----------------------------------------------------------------------');
 
-// To run the benchmarks a fully synced Bcccore Core directory is needed. The RPC comands
+// To run the benchmarks a fully synced Bch Core directory is needed. The RPC comands
 // can be modified to match the settings in bitcoin.conf.
 
 var fixtureData = {

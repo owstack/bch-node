@@ -3,10 +3,10 @@
 var should = require('chai').should();
 
 describe('Index Exports', function() {
-  it('will export bcccore-lib', function() {
-    var bcccore = require('../');
-    should.exist(bcccore.lib);
-    should.exist(bcccore.lib.Transaction);
-    should.exist(bcccore.lib.Block);
+  it('will export bch-lib', function() {
+    var bch = require('../');
+    should.exist(bch.lib);
+    should.exist(bch.lib.Transaction);
+    should.exist(bch.lib.Block);
   });
 });

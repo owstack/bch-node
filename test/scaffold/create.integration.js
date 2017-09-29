@@ -64,7 +64,7 @@ describe('#create', function() {
         throw err;
       }
 
-      var configPath = testDir + '/mynode/bcccore-node.json';
+      var configPath = testDir + '/mynode/bch-node.json';
       var packagePath = testDir + '/mynode/package.json';
 
       should.equal(fs.existsSync(configPath), true);

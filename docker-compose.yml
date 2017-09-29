@@ -4,7 +4,7 @@ services:
     build: extra/compose
     volumes:
       - bitcoin-abc-data-dir:/data
-      - bcccore-conf-dir:/home/ows/config
+      - bch-conf-dir:/home/ows/config
   bitcoin-abc:
     image: "owstack/bitcoin-abc:0.14.6-ows"
     user: root
@@ -27,8 +27,10 @@ services:
     depends_on:
       - "bitcoin-abc"
     volumes:
-      - bcccore-conf-dir:/home/ows/config
-    command: "bcccore-node start -c /home/ows/config"
+    #   - bitcoin-abc-data-dir:/data
+      - bch-conf-dir:/home/ows/config
+    command: "bch-node start -c /home/ows/config"
+    # command: "cat /home/ows/config/bch-node.json"
 volumes:
   bitcoin-abc-data-dir:
-  bcccore-conf-dir:
+  bch-conf-dir:

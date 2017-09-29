@@ -23,7 +23,7 @@ describe('#findConfig', function() {
         throw err;
       }
       fs.writeFile(
-        testDir + '/p2/bcccore-node.json',
+        testDir + '/p2/bch-node.json',
         JSON.stringify(expectedConfig),
         function() {
           mkdirp(testDir + '/e0', function(err) {

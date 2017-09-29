@@ -9,7 +9,7 @@ var log = index.log;
 log.debug = function() {};
 
 var chai = require('chai');
-var bcccore = require('bcccore-lib');
+var bch = require('bch-lib');
 var rimraf = require('rimraf');
 var node;
 
@@ -17,8 +17,8 @@ var should = chai.should();
 
 var BitcoinRPC = require('bitcoind-rpc');
 var index = require('..');
-var Transaction = bcccore.Transaction;
-var BcccoreNode = index.Node;
+var Transaction = bch.Transaction;
+var BchNode = index.Node;
 var BitcoinService = index.services.Bitcoin;
 var testWIF = 'cSdkPxkAjA4HDr5VHgsebAPDEh9Gyub4HK8UJr2DFGGqKKy4K5sG';
 var testKey;
@@ -36,7 +36,7 @@ describe('Node Functionality', function() {
 
     var datadir = __dirname + '/data';
 
-    testKey = bcccore.PrivateKey(testWIF);
+    testKey = bch.PrivateKey(testWIF);
 
     rimraf(datadir + '/regtest', function(err) {
 
@@ -60,9 +60,9 @@ describe('Node Functionality', function() {
         ]
       };
 
-      node = new BcccoreNode(configuration);
+      node = new BchNode(configuration);
 
-      regtest = bcccore.Networks.get('regtest');
+      regtest = bch.Networks.get('regtest');
       should.exist(regtest);
 
       node.on('error', function(err) {
@@ -255,19 +255,19 @@ describe('Node Functionality', function() {
           }
         });
 
-        testKey2 = bcccore.PrivateKey.fromWIF('cNfF4jXiLHQnFRsxaJyr2YSGcmtNYvxQYSakNhuDGxpkSzAwn95x');
+        testKey2 = bch.PrivateKey.fromWIF('cNfF4jXiLHQnFRsxaJyr2YSGcmtNYvxQYSakNhuDGxpkSzAwn95x');
         address2 = testKey2.toAddress(regtest).toString();
 
-        testKey3 = bcccore.PrivateKey.fromWIF('cVTYQbaFNetiZcvxzXcVMin89uMLC43pEBMy2etgZHbPPxH5obYt');
+        testKey3 = bch.PrivateKey.fromWIF('cVTYQbaFNetiZcvxzXcVMin89uMLC43pEBMy2etgZHbPPxH5obYt');
         address3 = testKey3.toAddress(regtest).toString();
 
-        testKey4 = bcccore.PrivateKey.fromWIF('cPNQmfE31H2oCUFqaHpfSqjDibkt7XoT2vydLJLDHNTvcddCesGw');
+        testKey4 = bch.PrivateKey.fromWIF('cPNQmfE31H2oCUFqaHpfSqjDibkt7XoT2vydLJLDHNTvcddCesGw');
         address4 = testKey4.toAddress(regtest).toString();
 
-        testKey5 = bcccore.PrivateKey.fromWIF('cVrzm9gCmnzwEVMGeCxY6xLVPdG3XWW97kwkFH3H3v722nb99QBF');
+        testKey5 = bch.PrivateKey.fromWIF('cVrzm9gCmnzwEVMGeCxY6xLVPdG3XWW97kwkFH3H3v722nb99QBF');
         address5 = testKey5.toAddress(regtest).toString();
 
-        testKey6 = bcccore.PrivateKey.fromWIF('cPfMesNR2gsQEK69a6xe7qE44CZEZavgMUak5hQ74XDgsRmmGBYF');
+        testKey6 = bch.PrivateKey.fromWIF('cPfMesNR2gsQEK69a6xe7qE44CZEZavgMUak5hQ74XDgsRmmGBYF');
         address6 = testKey6.toAddress(regtest).toString();
 
         var tx = new Transaction();
@@ -660,7 +660,7 @@ describe('Node Functionality', function() {
       });
 
       it('will update the mempool index after new tx', function(done) {
-        var memAddress = bcccore.PrivateKey().toAddress(node.network).toString();
+        var memAddress = bch.PrivateKey().toAddress(node.network).toString();
         var tx = new Transaction();
         tx.from(unspentOutput);
         tx.to(memAddress, unspentOutput.satoshis - 1000);

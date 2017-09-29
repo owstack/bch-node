@@ -19,7 +19,7 @@ describe('#defaultConfig', function() {
       servicesConfig: {
         bitcoind: {
           spawn: {
-            datadir: process.env.HOME + '/.bcccore/data',
+            datadir: process.env.HOME + '/.bch/data',
             exec: expectedExecPath
           }
         }
@@ -29,7 +29,7 @@ describe('#defaultConfig', function() {
       fs: {
         existsSync: sinon.stub().returns(false),
         writeFileSync: function(path, data) {
-          path.should.equal(process.env.HOME + '/.bcccore/bcccore-node.json');
+          path.should.equal(process.env.HOME + '/.bch/bch-node.json');
           data.should.equal(config);
         },
         readFileSync: function() {
@@ -42,13 +42,13 @@ describe('#defaultConfig', function() {
     });
     var home = process.env.HOME;
     var info = defaultConfig();
-    info.path.should.equal(home + '/.bcccore');
+    info.path.should.equal(home + '/.bch');
     info.config.network.should.equal('livenet');
     info.config.port.should.equal(3001);
     info.config.services.should.deep.equal(['bitcoind', 'web']);
     var bitcoind = info.config.servicesConfig.bitcoind;
     should.exist(bitcoind);
-    bitcoind.spawn.datadir.should.equal(home + '/.bcccore/data');
+    bitcoind.spawn.datadir.should.equal(home + '/.bch/data');
     bitcoind.spawn.exec.should.equal(expectedExecPath);
   });
   it('will include additional services', function() {
@@ -64,7 +64,7 @@ describe('#defaultConfig', function() {
       servicesConfig: {
         bitcoind: {
           spawn: {
-            datadir: process.env.HOME + '/.bcccore/data',
+            datadir: process.env.HOME + '/.bch/data',
             exec: expectedExecPath
           }
         }
@@ -74,7 +74,7 @@ describe('#defaultConfig', function() {
       fs: {
         existsSync: sinon.stub().returns(false),
         writeFileSync: function(path, data) {
-          path.should.equal(process.env.HOME + '/.bcccore/bcccore-node.json');
+          path.should.equal(process.env.HOME + '/.bch/bch-node.json');
           data.should.equal(config);
         },
         readFileSync: function() {
@@ -89,7 +89,7 @@ describe('#defaultConfig', function() {
     var info = defaultConfig({
       additionalServices: ['explorer-api', 'ows-explorer']
     });
-    info.path.should.equal(home + '/.bcccore');
+    info.path.should.equal(home + '/.bch');
     info.config.network.should.equal('livenet');
     info.config.port.should.equal(3001);
     info.config.services.should.deep.equal([
@@ -100,7 +100,7 @@ describe('#defaultConfig', function() {
     ]);
     var bitcoind = info.config.servicesConfig.bitcoind;
     should.exist(bitcoind);
-    bitcoind.spawn.datadir.should.equal(home + '/.bcccore/data');
+    bitcoind.spawn.datadir.should.equal(home + '/.bch/data');
     bitcoind.spawn.exec.should.equal(expectedExecPath);
   });
 });

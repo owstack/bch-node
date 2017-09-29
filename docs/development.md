@@ -10,12 +10,12 @@ nvm install v4
 
 ## Fork and Download Repositories
 
-To develop bcccore-node:
+To develop bch-node:
 
 ```bash
 cd ~
-git clone git@github.com:<yourusername>/bcccore-node.git
-git clone git@github.com:<yourusername>/bcccore-lib.git
+git clone git@github.com:<yourusername>/bch-node.git
+git clone git@github.com:<yourusername>/bch-lib.git
 ```
 
 To develop bitcoin or to compile from source:
@@ -46,19 +46,19 @@ brew install zeromq
 ## Install and Symlink
 
 ```bash
-cd bcccore-lib
+cd bch-lib
 npm install
-cd ../bcccore-node
+cd ../bch-node
 npm install
 ```
 **Note**: If you get a message about not being able to download bitcoin distribution, you'll need to compile bitcoind from source, and setup your configuration to use that version.
 
 
-We now will setup symlinks in `bcccore-node` *(repeat this for any other modules you're planning on developing)*:
+We now will setup symlinks in `bch-node` *(repeat this for any other modules you're planning on developing)*:
 ```bash
 cd node_modules
-rm -rf bcccore-lib
-ln -s ~/bcccore-lib
+rm -rf bch-lib
+ln -s ~/bch-lib
 rm -rf bitcoind-rpc
 ln -s ~/bitcoind-rpc
 ```
@@ -78,7 +78,7 @@ npm install mocha -g
 
 To run all test suites:
 ```bash
-cd bcccore-node
+cd bch-node
 npm run regtest
 npm run test
 ```
@@ -102,11 +102,11 @@ cd ~
 mkdir devnode
 cd devnode
 mkdir node_modules
-touch bcccore-node.json
+touch bch-node.json
 touch package.json
 ```
 
-Edit `bcccore-node.json` with something similar to:
+Edit `bch-node.json` with something similar to:
 ```json
 {
   "network": "livenet",
@@ -126,21 +126,21 @@ Edit `bcccore-node.json` with something similar to:
       }
     },
     "explorer-api": {
-      "module": "bcccore-explorer-api"
+      "module": "bch-explorer-api"
     }
   }
 }
 ```
 
-**Note**: To install services [bcccore-explorer-api](https://github.com/owstack/bcccore-explorer-api) and [ows-explorer](https://github.com/owstack/ows-explorer) you'll need to clone the repositories locally.
+**Note**: To install services [bch-explorer-api](https://github.com/owstack/bch-explorer-api) and [ows-explorer](https://github.com/owstack/ows-explorer) you'll need to clone the repositories locally.
 
 Setup symlinks for all of the services and dependencies:
 
 ```bash
 cd node_modules
-ln -s ~/bcccore-lib
-ln -s ~/bcccore-node
-ln -s ~/bcccore-explorer-api
+ln -s ~/bch-lib
+ln -s ~/bch-node
+ln -s ~/bch-explorer-api
 ln -s ~/ows-explorer
 ```
 
@@ -161,5 +161,5 @@ rpcpassword=local321
 
 From within the `devnode` directory with the configuration file, start the node:
 ```bash
-../bcccore-node/bin/bcccore-node start
+../bch-node/bin/bch-node start
 ```

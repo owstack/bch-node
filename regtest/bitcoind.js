@@ -7,8 +7,8 @@ var index = require('..');
 var log = index.log;
 
 var chai = require('chai');
-var bcccore = require('bcccore-lib');
-var BN = bcccore.crypto.BN;
+var bch = require('bch-lib');
+var BN = bch.crypto.BN;
 var async = require('async');
 var rimraf = require('rimraf');
 var bitcoind;
@@ -23,8 +23,8 @@ var blockHashes = [];
 var utxos;
 var client;
 var coinbasePrivateKey;
-var privateKey = bcccore.PrivateKey();
-var destKey = bcccore.PrivateKey();
+var privateKey = bch.PrivateKey();
+var destKey = bch.PrivateKey();
 
 describe('Bitcoind Functionality', function() {
 
@@ -32,8 +32,8 @@ describe('Bitcoind Functionality', function() {
     this.timeout(60000);
 
     // Add the regtest network
-    bcccore.Networks.enableRegtest();
-    var regtestNetwork = bcccore.Networks.get('regtest');
+    bch.Networks.enableRegtest();
+    var regtestNetwork = bch.Networks.get('regtest');
 
     var datadir = __dirname + '/data';
 
@@ -212,7 +212,7 @@ describe('Bitcoind Functionality', function() {
     [0,1,2,3,4,5,6,7,8,9].forEach(function(i) {
       it('for tx ' + i, function(done) {
         var txhex = transactionData[i];
-        var tx = new bcccore.Transaction();
+        var tx = new bch.Transaction();
         tx.fromString(txhex);
         bitcoind.getTransaction(tx.hash, function(err, response) {
           if (err) {
@@ -237,7 +237,7 @@ describe('Bitcoind Functionality', function() {
     [0,1,2,3,4,5,6,7,8,9].forEach(function(i) {
       it('for tx ' + i, function(done) {
         var txhex = transactionData[i];
-        var tx = new bcccore.Transaction();
+        var tx = new bch.Transaction();
         tx.fromString(txhex);
         bitcoind.getRawTransaction(tx.hash, function(err, response) {
           if (err) {
@@ -328,11 +328,11 @@ describe('Bitcoind Functionality', function() {
     it('will not error and return the transaction hash', function(done) {
 
       // create and sign the transaction
-      var tx = bcccore.Transaction();
+      var tx = bch.Transaction();
       tx.from(utxos[0]);
       tx.change(privateKey.toAddress());
       tx.to(destKey.toAddress(), utxos[0].amount * 1e8 - 1000);
-      tx.sign(bcccore.PrivateKey.fromWIF(utxos[0].privateKeyWIF));
+      tx.sign(bch.PrivateKey.fromWIF(utxos[0].privateKeyWIF));
 
       // test sending the transaction
       bitcoind.sendTransaction(tx.serialize(), function(err, hash) {
@@ -346,7 +346,7 @@ describe('Bitcoind Functionality', function() {
     });
 
     it('will throw an error if an unsigned transaction is sent', function(done) {
-      var tx = bcccore.Transaction();
+      var tx = bch.Transaction();
       tx.from(utxos[1]);
       tx.change(privateKey.toAddress());
       tx.to(destKey.toAddress(), utxos[1].amount * 1e8 - 1000);
@@ -374,11 +374,11 @@ describe('Bitcoind Functionality', function() {
     });
 
     it('will emit "tx" events', function(done) {
-      var tx = bcccore.Transaction();
+      var tx = bch.Transaction();
       tx.from(utxos[2]);
       tx.change(privateKey.toAddress());
       tx.to(destKey.toAddress(), utxos[2].amount * 1e8 - 1000);
-      tx.sign(bcccore.PrivateKey.fromWIF(utxos[2].privateKeyWIF));
+      tx.sign(bch.PrivateKey.fromWIF(utxos[2].privateKeyWIF));
 
       var serialized = tx.serialize();
 
