@@ -9,5 +9,6 @@ RUN mkdir -p $CONFIG_DIR
 
 COPY default.bitcoin.conf $BITCOIN_DATA/bitcoin.conf
 COPY default.bch-node.json $CONFIG_DIR/bch-node.json
+COPY default.bch-node.conf $CONFIG_DIR/bitcoin.conf
 
 CMD ["echo","installed config files"]

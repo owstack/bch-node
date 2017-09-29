@@ -1,6 +1,6 @@
 {
   "name": "bch-node",
-  "description": "Bitcoin Cash full node with extended capabilities using Bch.",
+  "description": "Bitcoin Cash full node with extended capabilities.",
   "version": "0.0.1",
   "main": "./index.js",
   "repository": "git://github.com/owstack/bch-node.git",
@@ -9,7 +9,7 @@
     "url": "https://github.com/owstack/bch-node/issues"
   },
   "bin": {
-    "bch-node": "./bin/bch-node"
+    "bchnode": "./bin/bchnode"
   },
   "scripts": {
     "test": "mocha -R spec --recursive",

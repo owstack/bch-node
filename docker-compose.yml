@@ -27,10 +27,8 @@ services:
     depends_on:
       - "bitcoin-abc"
     volumes:
-    #   - bitcoin-abc-data-dir:/data
       - bch-conf-dir:/home/ows/config
-    command: "bch-node start -c /home/ows/config"
-    # command: "cat /home/ows/config/bch-node.json"
+    command: "bchnode start -c /home/ows/config"
 volumes:
   bitcoin-abc-data-dir:
   bch-conf-dir:
