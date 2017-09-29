@@ -11,7 +11,7 @@ A Bitcoin Cash full node for building applications and services with Node.js. A 
 
 ```bash
 npm install -g bch-node
-bch-node start
+bchnode start
 ```
 
 ## Prerequisites
@@ -27,10 +27,10 @@ bch-node start
 Bch-node includes a Command Line Interface (CLI) for managing, configuring and interfacing with your Bch Node.
 
 ```bash
-bch-node create -d <bitcoin-data-dir> mynode
+bchnode create -d <bitcoin-data-dir> mynode
 cd mynode
-bch-node install <service>
-bch-node install https://github.com/yourname/helloworld
+bchnode install <service>
+bchnode install https://github.com/yourname/helloworld
 ```
 
 This will create a directory with configuration files for your node and install the necessary dependencies. For more information about (and developing) services, please see the [Service Documentation](docs/services.md).
