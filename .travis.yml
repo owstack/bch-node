@@ -13,7 +13,7 @@ addons:
 node_js:
   - "v8"
 script:
-  # - npm run regtest/bcc
+  # - npm run regtest/bch
   - npm run test
   - npm run jshint
 after_success:

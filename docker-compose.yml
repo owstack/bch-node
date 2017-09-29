@@ -20,7 +20,7 @@ services:
       - bitcoin-abc-data-dir:/data
     depends_on:
       - "bitcoin-abc-conf"
-  bcc-node:
+  bch-node:
     build: .
     ports:
       - "3001:3001"
