@@ -25,7 +25,6 @@
   "dependencies": {
     "async": "^1.3.0",
     "bitcoind-rpc": "https://github.com/owstack/bitcoind-rpc",
-    "bch-explorer-api": "https://github.com/owstack/bch-explorer-api",
     "bch-lib": "https://github.com/owstack/bch-lib",
     "body-parser": "^1.13.3",
     "colors": "^1.1.2",
