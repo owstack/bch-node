@@ -4,6 +4,7 @@ Bch Node
 [![NPM Package](https://img.shields.io/npm/v/bch-node.svg?style=flat-square)](https://www.npmjs.org/package/bch-node)
 [![Build Status](https://img.shields.io/travis/owstack/bch-node.svg?branch=master&style=flat-square)](https://travis-ci.org/owstack/bch-node)
 [![Coverage Status](https://img.shields.io/coveralls/owstack/bch-node.svg?style=flat-square)](https://coveralls.io/r/owstack/bch-node)
+[![Greenkeeper badge](https://badges.greenkeeper.io/owstack/bch-node.svg)](https://greenkeeper.io/)
 
 A Bitcoin Cash full node for building applications and services with Node.js. A node is extensible and can be configured to run additional services.  Additional services can be enabled to make a node more useful such as exposing new APIs, running a block explorer and wallet service.
 

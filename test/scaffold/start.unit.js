@@ -241,7 +241,7 @@ describe('#start', function() {
         var start = require('../../lib/scaffold/start');
         var log = require('../../lib').log;
         logStub = sandbox.stub(log, 'error');
-        cleanShutdown = sandbox.stub(start, 'cleanShutdown', function() {});
+        cleanShutdown = sandbox.stub(start, 'cleanShutdown');
         exitHandler = require('../../lib/scaffold/start').exitHandler;
       });
 
