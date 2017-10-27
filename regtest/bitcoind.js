@@ -7,7 +7,7 @@ var index = require('..');
 var log = index.log;
 
 var chai = require('chai');
-var bchLib = require('bch-lib');
+var bchLib = require('@owstack/bch-lib');
 var BN = bchLib.crypto.BN;
 var async = require('async');
 var rimraf = require('rimraf');

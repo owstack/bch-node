@@ -24,4 +24,4 @@ module.exports.cli.daemon = require('./lib/cli/daemon');
 module.exports.cli.bchnode = require('./lib/cli/bchnode');
 module.exports.cli.bchnoded = require('./lib/cli/bchnoded');
 
-module.exports.lib = require('bch-lib');
+module.exports.lib = require('@owstack/bch-lib');

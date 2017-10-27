@@ -1,5 +1,5 @@
 {
-  "name": "bch-node",
+  "name": "@owstack/bch-node",
   "description": "Bitcoin Cash full node with extended capabilities.",
   "version": "0.0.1",
   "main": "./index.js",
@@ -24,8 +24,8 @@
   ],
   "dependencies": {
     "async": "^2.5.0",
-    "bitcoind-rpc": "https://github.com/owstack/bitcoind-rpc",
-    "bch-lib": "https://github.com/owstack/bch-lib",
+    "@owstack/bitcoind-rpc": "^0.0.1",
+    "@owstack/bch-lib": "^0.0.1",
     "body-parser": "^1.13.3",
     "colors": "^1.1.2",
     "commander": "^2.8.1",
@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "benchmark": "2.1.4",
-    "bch-p2p": "https://github.com/owstack/bch-p2p",
+    "@owstack/bch-p2p": "^0.0.1",
     "chai": "^4.1.2",
     "coveralls": "^3.0.0",
     "istanbul": "^0.4.3",

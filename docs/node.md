@@ -14,7 +14,7 @@ A node represents a collection of services that are loaded together. For more in
 
 ```js
 
-var index = require('bch-node');
+var index = require('@owstack/bch-node');
 var Bitcoin = index.services.Bitcoin;
 var Node = index.Node;
 

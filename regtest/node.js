@@ -9,7 +9,7 @@ var log = index.log;
 log.debug = function() {};
 
 var chai = require('chai');
-var bchLib = require('bch-lib');
+var bchLib = require('@owstack/bch-lib');
 var rimraf = require('rimraf');
 var node;
 

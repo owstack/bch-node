@@ -2,7 +2,7 @@
 
 var should = require('chai').should();
 var sinon = require('sinon');
-var bchLib = require('bch-lib');
+var bchLib = require('@owstack/bch-lib');
 var Networks = bchLib.Networks;
 var proxyquire = require('proxyquire');
 var util = require('util');

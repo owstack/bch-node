@@ -6,11 +6,11 @@ var path = require('path');
 var index = require('..');
 var log = index.log;
 
-var bchP2p = require('bch-p2p');
+var bchP2p = require('@owstack/bch-p2p');
 var Peer = bchP2p.Peer;
 var Messages = bchP2p.Messages;
 var chai = require('chai');
-var bchLib = require('bch-lib');
+var bchLib = require('@owstack/bch-lib');
 var Transaction = bchLib.Transaction;
 var BN = bchLib.crypto.BN;
 var async = require('async');

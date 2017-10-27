@@ -6,7 +6,7 @@ var spawn = require('child_process').spawn;
 
 var BitcoinRPC = require('bitcoind-rpc');
 var rimraf = require('rimraf');
-var bchLib = require('bch-lib');
+var bchLib = require('@owstack/bch-lib');
 var chai = require('chai');
 var should = chai.should();
 

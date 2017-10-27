@@ -20,9 +20,9 @@ Services correspond with a Node.js module as described in 'package.json', for ex
 ```json
 {
   "dependencies": {
-    "bch-lib": "^0.13.7",
-    "bch-node": "^0.2.0",
-    "bch-explorer-api": "^3.0.0"
+    "@owstack/bch-lib": "^0.13.7",
+    "@owstack/bch-node": "^0.2.0",
+    "@owstack/bch-explorer-api": "^3.0.0"
   }
 }
 ```
@@ -34,7 +34,7 @@ If, instead, you would like to run a custom node, you can include services by in
 
 ```js
 //Require bch-node
-var bchNode = require('bch-node');
+var bchNode = require('@owstack/bch-node');
 
 //Services
 var Bitcoin = bchNode.services.Bitcoin;
