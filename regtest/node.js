@@ -15,7 +15,7 @@ var node;
 
 var should = chai.should();
 
-var BitcoinRPC = require('bitcoind-rpc');
+var BitcoinRPC = require('@owstack/bitcoind-rpc');
 var index = require('..');
 var Transaction = bchLib.Transaction;
 var BchNode = index.Node;
