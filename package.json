@@ -45,7 +45,7 @@
     "utf-8-validate": "~3.0.3"
   },
   "devDependencies": {
-    "@owstack/bch-p2p": "^0.0.4",
+    "@owstack/bch-p2p": "^0.0.6",
     "benchmark": "2.1.4",
     "chai": "^4.1.2",
     "coveralls": "^3.0.0",
