@@ -34,7 +34,7 @@ WORKDIR $APP_DIR
 RUN $PKG_NAME install @owstack/bch-explorer-api@0.0.7
 RUN $PKG_NAME install @owstack/bch-wallet-service@0.0.9
 RUN $PKG_NAME install @owstack/ows-explorer@0.0.3
-RUN $PKG_NAME install @owstack/ows-elastic-sync@1.0.2
+RUN $PKG_NAME install @owstack/ows-elastic-sync@1.0.3
 
 USER root
 CMD ["bchnode","start"]
