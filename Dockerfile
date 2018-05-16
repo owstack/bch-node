@@ -25,16 +25,15 @@ WORKDIR $PKG_DIR
 RUN chown -R ows:ows $HOME_PATH && chgrp ows /usr/local/lib/node_modules && chgrp ows /usr/local/bin
 
 USER ows
-RUN npm install -g @owstack/bch-node@0.0.12
+RUN npm install -g @owstack/bch-node@0.0.13
 
 WORKDIR $HOME_PATH
 RUN $PKG_NAME create -d $BITCOIN_DATA $APP_NAME
 
 WORKDIR $APP_DIR
-RUN $PKG_NAME install @owstack/bch-explorer-api@0.0.7
-RUN $PKG_NAME install @owstack/bch-wallet-service@0.0.9
+RUN $PKG_NAME install @owstack/bch-explorer-api@0.0.8
+RUN $PKG_NAME install @owstack/bch-wallet-service@0.0.10
 RUN $PKG_NAME install @owstack/ows-explorer@0.0.3
-RUN $PKG_NAME install @owstack/ows-elastic-sync@1.0.3
 
 USER root
 CMD ["bchnode","start"]

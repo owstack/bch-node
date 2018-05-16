@@ -1,7 +1,7 @@
 {
   "name": "@owstack/bch-node",
   "description": "Bitcoin Cash full node with extended capabilities.",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "main": "./index.js",
   "repository": "git://github.com/owstack/bch-node.git",
   "homepage": "https://github.com/owstack/bch-node",
