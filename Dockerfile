@@ -25,7 +25,7 @@ WORKDIR $PKG_DIR
 RUN chown -R ows:ows $HOME_PATH && chgrp ows /usr/local/lib/node_modules && chgrp ows /usr/local/bin
 
 USER ows
-RUN npm install -g @owstack/bch-node@0.0.13
+RUN npm install -g @owstack/bch-node@0.1.0
 
 WORKDIR $HOME_PATH
 RUN $PKG_NAME create -d $BITCOIN_DATA $APP_NAME
